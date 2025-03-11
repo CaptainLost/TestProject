@@ -23,23 +23,5 @@ public class EnemyActorDamagable : MonoBehaviour, IDamagable
     public void Damage(float damageAmount)
     {
         m_health.ReceiveDamage(damageAmount);
-
-        UpdateColorOnHit();
-    }
-
-    private void UpdateColorOnHit()
-    {
-        float healthPercent = Mathf.Clamp01(m_health.Health / m_health.MaxHealth);
-
-        Color newColor = new Color(healthPercent * 255f, 0f, 0f);
-
-        ChangePropertyColor(newColor);
-    }
-
-    private void ChangePropertyColor(Color color)
-    {
-        m_actorComponents.EnemyRenderer.GetPropertyBlock(m_propertyBlock);
-        m_propertyBlock.SetColor("_Color", color);
-        m_actorComponents.EnemyRenderer.SetPropertyBlock(m_propertyBlock);
     }
 }
