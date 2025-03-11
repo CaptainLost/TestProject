@@ -18,7 +18,7 @@ public class PlayerEquipmentSlotUI : ItemSlotUI
         m_playerEquipment = playerEquipment;
     }
 
-    private void OnEnable()
+    private void Awake()
     {
         m_playerEquipment.OnItemSlotAdded += DisplayItem;
         m_playerEquipment.OnItemSlotModified += DisplayItem;
@@ -26,7 +26,7 @@ public class PlayerEquipmentSlotUI : ItemSlotUI
         m_playerEquipment.OnItemSlotRemoved += HideItem;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         m_playerEquipment.OnItemSlotAdded -= DisplayItem;
         m_playerEquipment.OnItemSlotModified -= DisplayItem;
